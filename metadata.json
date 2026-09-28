@@ -1,0 +1,7 @@
+{
+  "name": "Canteen Connect",
+  "description": "A college canteen companion for engineering students featuring a campus notebook aesthetic, clay-style tiffin and mascot, live queue tracker, and canteen menu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

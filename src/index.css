@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-cream: #FFF8EE;
+    --color-lavender: #7C5CFF;
+    --color-mint: #2ED8A7;
+    --color-yellow: #FFD166;
+    --color-coral: #FF7F6A;
+    --color-navy: #1F2937;
+  }
+
+  body {
+    font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f1e7d8;
+    color: #1F2937;
+  }
+}
+
+/* Custom Typography Helpers */
+.font-handwriting {
+  font-family: 'Caveat', 'Patrick Hand', cursive;
+}
+
+.font-kalam {
+  font-family: 'Kalam', 'Caveat', cursive;
+}
+
+.font-sans-rounded {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Notebook Paper & Lined Effects */
+.notebook-ruled-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    rgba(124, 92, 255, 0.08) 28px
+  );
+}
+
+.notebook-grid-lines {
+  background-image: 
+    linear-gradient(to right, rgba(124, 92, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(124, 92, 255, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.notice-board-cork {
+  background-color: #d6c1a5;
+  background-image: radial-gradient(rgba(176, 142, 105, 0.4) 15%, transparent 16%),
+                    radial-gradient(rgba(145, 114, 80, 0.3) 15%, transparent 16%);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Soft 3D Clay Effects */
+.clay-card {
+  background-color: #FFF8EE;
+  border-radius: 20px;
+  box-shadow: 
+    0 10px 25px -5px rgba(31, 41, 55, 0.08),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9),
+    inset 0 -3px 6px rgba(180, 150, 120, 0.15);
+}
+
+.clay-button {
+  box-shadow: 
+    0 6px 0px 0px rgba(31, 41, 55, 0.15),
+    0 10px 15px -3px rgba(31, 41, 55, 0.1),
+    inset 0 2px 3px rgba(255, 255, 255, 0.45);
+  transition: all 0.15s ease-in-out;
+}
+
+.clay-button:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 2px 0px 0px rgba(31, 41, 55, 0.15),
+    0 4px 6px -1px rgba(31, 41, 55, 0.1),
+    inset 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.clay-element {
+  filter: drop-shadow(0 6px 10px rgba(31, 41, 55, 0.12));
+}
+
+/* Washi tape effect */
+.washi-tape {
+  background: rgba(255, 209, 102, 0.7);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: relative;
+  backdrop-filter: blur(1px);
+}
+
+.washi-tape-mint {
+  background: rgba(46, 216, 167, 0.65);
+}
+
+.washi-tape-coral {
+  background: rgba(255, 127, 106, 0.65);
+}
+
+.washi-tape-lavender {
+  background: rgba(124, 92, 255, 0.55);
+}
+
+/* Rubber Stamp Styling */
+.stamp-available {
+  border: 2.5px solid #2ED8A7;
+  color: #128362;
+  box-shadow: 0 0 0 1.5px rgba(46, 216, 167, 0.3), inset 0 0 0 1px rgba(46, 216, 167, 0.3);
+  transform: rotate(-3deg);
+}
+
+.stamp-going-fast {
+  border: 2.5px dashed #e69d00;
+  color: #b37300;
+  background-color: rgba(255, 209, 102, 0.35);
+  transform: rotate(2.5deg);
+}
+
+.stamp-sold-out {
+  border: 3px double #FF7F6A;
+  color: #d13a22;
+  box-shadow: 0 0 0 2px rgba(255, 127, 106, 0.3);
+  transform: rotate(-6deg);
+}
+
+/* Keyframes for subtle breathing or idle motion */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1deg);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+@keyframes steamRise {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-8px) scaleX(1.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-16px) scaleX(1.6);
+    opacity: 0;
+  }
+}
+
+.animate-steam {
+  animation: steamRise 2.5s ease-out infinite;
+}
+

@@ -1,0 +1,97 @@
+{
+  "entities": {
+    "CanteenState": {
+      "title": "CanteenState",
+      "description": "Represents the live state of the canteen including menu items, today's lunch tiffin, queue telemetry, and announcements.",
+      "type": "object",
+      "properties": {
+        "menuItems": {
+          "type": "array",
+          "description": "List of food items offered at the canteen."
+        },
+        "todayLunch": {
+          "type": "object",
+          "description": "Details of today's lunch thali (roti, sabzi1, sabzi2, dal, rice, price, availability)."
+        },
+        "lunchTiffin": {
+          "type": "object",
+          "description": "Alias for today's lunch thali."
+        },
+        "queueRush": {
+          "type": "string",
+          "description": "Current rush density (LOW, MEDIUM, HIGH)."
+        },
+        "queueStatus": {
+          "type": "string",
+          "description": "Queue density status."
+        },
+        "estimatedWaitTime": {
+          "type": "string",
+          "description": "Estimated waiting time at billing counter."
+        },
+        "nowServingToken": {
+          "type": "string",
+          "description": "Current token being served."
+        },
+        "queueDescription": {
+          "type": "string",
+          "description": "Description of current queue movement."
+        },
+        "nextBreak": {
+          "type": "string",
+          "description": "Time until the next lecture break."
+        },
+        "nextBreakLabel": {
+          "type": "string",
+          "description": "Name or period label of the next break."
+        },
+        "announcements": {
+          "type": "array",
+          "description": "List of active notices displayed on the canteen notice board."
+        },
+        "todaysSpecial": {
+          "type": "object",
+          "description": "Featured special dish of the day."
+        }
+      }
+    },
+    "AdminRecord": {
+      "title": "AdminRecord",
+      "description": "Designates an authenticated user as an authorized Canteen Administrator.",
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "Role string ('admin')."
+        },
+        "isAdmin": {
+          "type": "boolean",
+          "description": "Boolean flag indicating administrative access."
+        },
+        "email": {
+          "type": "string",
+          "description": "Administrator email address."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when admin role was granted."
+        }
+      },
+      "required": ["role"]
+    }
+  },
+  "firestore": {
+    "/canteen_state/{stateId}": {
+      "schema": "CanteenState",
+      "description": "Live shared state of the canteen, readable by students and staff, writable by verified canteen admins."
+    },
+    "/admins/{adminId}": {
+      "schema": "AdminRecord",
+      "description": "Registry of authorized admin user UIDs."
+    },
+    "/admin_users/{userId}": {
+      "schema": "AdminRecord",
+      "description": "Alternative admin role mapping collection."
+    }
+  }
+}
